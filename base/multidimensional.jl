@@ -345,6 +345,8 @@ module IteratorsMD
     convert(::Type{CartesianIndices{N,R}}, inds::CartesianIndices{N}) where {N,R} =
         CartesianIndices(convert(R, inds.indices))
 
+    Base.copy(inds::CartesianIndices) = CartesianIndices(inds.indices)
+
     # equality
     Base.:(==)(a::CartesianIndices{N}, b::CartesianIndices{N}) where N =
         all(map(==, a.indices, b.indices))

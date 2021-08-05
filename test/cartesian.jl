@@ -127,6 +127,11 @@ ex = Base.Cartesian.exprresolve(:(if 5 > 4; :x; else :y; end))
     # TODO: non-1 steps are not supported yet, but may change in the future
     @test_throws ArgumentError LinearIndices(CartesianIndices((1:2:5, )))
     @test_throws ArgumentError LinearIndices(CartesianIndices((1:1:5, 1:2:5)))
+
+    @testset "copy" begin
+        R = CartesianIndices((2:5, 2:5))
+        @test copy(R) === R
+    end
 end
 
 module TestOffsetArray
