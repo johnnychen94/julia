@@ -469,6 +469,7 @@ end
 
 convert(::Type{LinearIndices{N,R}}, inds::LinearIndices{N}) where {N,R} =
     LinearIndices(convert(R, inds.indices))
+copy(inds::LinearIndices) = LinearIndices(inds.indices)
 
 # AbstractArray implementation
 IndexStyle(::Type{<:LinearIndices}) = IndexLinear()

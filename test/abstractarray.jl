@@ -252,6 +252,11 @@ end
         end
     end
 
+    @testset "copy" begin
+        R = LinearIndices((2, 3))
+        @test copy(R) === R
+    end
+
     @testset "IdentityUnitRange" begin
         function _collect(A)
             rst = eltype(A)[]
